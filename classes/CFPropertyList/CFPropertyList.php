@@ -292,7 +292,7 @@ class CFPropertyList extends CFBinaryPropertyList implements Iterator {
       while($ps && $ps->nodeName == '#text' && $ps->previousSibling) $ps = $ps->previousSibling;
 
       // read <key> if possible
-      if($ps && $ps->nodeName == 'key') $key = $ps->firstChild->nodeValue;
+      if($ps && $ps->nodeName == 'key' && $ps->firstChild) $key = $ps->firstChild->nodeValue;
 
       switch($n->nodeName) {
         case 'date':
